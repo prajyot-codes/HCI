@@ -517,8 +517,8 @@ const Portfolio: React.FC = () => {
       'MongoDB',
       'HTML/CSS',
     ],
-    hci: ['Design Thinking', 'Rapid Prototyping', 'Iterative Testing', 'User Feedback Integration'],
-  };
+    
+    tools: ['Git & GitHub', 'VS Code', 'Postman', 'Docker', 'Jira', 'Agile Methodologies'],};
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-950 via-slate-900 to-gray-950 text-white">
@@ -751,9 +751,9 @@ const Portfolio: React.FC = () => {
 
             <Reveal>
               <div>
-                <h3 className="text-2xl font-semibold mb-4 text-gray-300">HCI Methods</h3>
+                <h3 className="text-2xl font-semibold mb-4 text-gray-300">Tools</h3>
                 <div className="flex flex-wrap gap-3">
-                  {skills.hci.map((skill, i) => (
+                  {skills.tools.map((skill, i) => (
                     <Reveal key={skill} delay={i * 80}>
                       <SkillBadge skill={skill} />
                     </Reveal>
