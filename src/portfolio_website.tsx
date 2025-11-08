@@ -1,4 +1,6 @@
-import { useState, useEffect, useRef, FormEvent, ReactNode } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import type { FormEvent, ReactNode } from 'react';
+
 import { Menu, X, Github, Linkedin, Mail, ExternalLink, ChevronDown } from 'lucide-react';
 import * as THREE from 'three';
 
