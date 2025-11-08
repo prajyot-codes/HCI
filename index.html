@@ -1,0 +1,67 @@
+<!-- index.html -->
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Prajyot Portfolio</title>
+    <!-- Optional: favicon -->
+    <!-- <link rel="icon" type="image/svg+xml" href="/vite.svg" /> -->
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <!-- Your app entry -->
+    <script type="module" src="/src/main.tsx"></script>
+
+    <!-- Typed.js (CDN) -->
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+
+    <!-- Initialize Typed.js after React mounts. Includes HMR-safety. -->
+    <script>
+      // Destroy any previous instance (prevents duplicates on Vite HMR)
+      if (window.__typedInstance && typeof window.__typedInstance.destroy === 'function') {
+        window.__typedInstance.destroy();
+        window.__typedInstance = null;
+      }
+
+      // Run after initial DOM is ready
+      window.addEventListener('DOMContentLoaded', () => {
+        // Wait a frame so React can render #element
+        requestAnimationFrame(() => {
+          const el = document.querySelector('#element');
+          const TypedCtor = window.Typed; // from CDN
+
+          if (!el || !TypedCtor) return;
+
+          // Create and store globally for future cleanups
+          window.__typedInstance = new TypedCtor('#element', {
+            strings: ['Web Developer', 'Programmer', 'Student'],
+            typeSpeed: 100,
+            backSpeed: 50,
+            backDelay: 900,
+            loop: true,
+            smartBackspace: true,
+            showCursor: true,
+            cursorChar: '|',
+          });
+        });
+      });
+    </script>
+
+    <script>
+      // Optional: clean up on hot module replacement navigations (Vite dev)
+      if (import.meta && import.meta.hot) {
+        import.meta.hot.accept(() => {
+          if (window.__typedInstance && typeof window.__typedInstance.destroy === 'function') {
+            window.__typedInstance.destroy();
+            window.__typedInstance = null;
+          }
+        });
+      }
+    </script>
+  </body>
+</html>
